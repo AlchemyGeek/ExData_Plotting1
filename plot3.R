@@ -1,5 +1,5 @@
 ## Coursera: Exploratory Data Analysis
-## Assignment 1 - Graph 2
+## Assignment 1 - Graph 3
 
 library(lubridate)
 
