@@ -4,7 +4,8 @@
 library(lubridate)
 
 ## Load data and subset to desired Date range
-hpcData <- read.csv("household_power_consumption.txt",sep=";")
+hpcData <- read.csv("household_power_consumption.txt",sep=";",
+                    stringsAsFactors = FALSE)
 hpcData$Time <- dmy_hms(paste(hpcData$Date,hpcData$Time))
 hpcData$Date <- dmy(hpcData$Date)
 hpcData <- hpcData[hpcData$Date >= as.Date("2007-02-01") & 
@@ -13,9 +14,9 @@ hpcData <- hpcData[hpcData$Date >= as.Date("2007-02-01") &
 ## Graph 3
 
 ## Convert columns to numeric
-hpcData$Sub_metering_1 <- as.numeric(as.character(hpcData$Sub_metering_1))
-hpcData$Sub_metering_2 <- as.numeric(as.character(hpcData$Sub_metering_2))
-hpcData$Sub_metering_3 <- as.numeric(as.character(hpcData$Sub_metering_3))
+hpcData$Sub_metering_1 <- as.numeric(hpcData$Sub_metering_1)
+hpcData$Sub_metering_2 <- as.numeric(hpcData$Sub_metering_2)
+hpcData$Sub_metering_3 <- as.numeric(hpcData$Sub_metering_3)
 
 ## Plot away
 png("plot3.png",width=480,height=480)
